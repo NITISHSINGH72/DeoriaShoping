@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deoria Shopping - Apne Sheher Ka Market</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: white;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e60000;
+            display: flex;
+            align-items: center;
+            text-shadow: 0 0 10px rgba(230, 0, 0, 0.3);
+        }
+        
+        .logo i {
+            margin-right: 8px;
+        }
+        
+        .yt_nitish916-link {
+            color: #e60000;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 8px 15px;
+            border: 1px solid #e60000;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .yt_nitish916-link:hover {
+            background-color: #e60000;
+            color: white;
+        }
+        
+        .search-container {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 700px;
+        }
+        
+        .search-box {
+            display: flex;
+            border: 2px solid #e60000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+        
+        .search-box button {
+            background-color: #e60000;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .page-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #000000;
+        }
+        
+        /* Category Tabs */
+        .category-tabs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .category-tab {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 15px 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        
+        .category-tab.active {
+            background: #e60000;
+            color: white;
+            border-color: #e60000;
+        }
+        
+        .category-tab i {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .business-list { 
+            display:flex; 
+            flex-direction:column; 
+            gap:12px; 
+            padding:10px 0; 
+        }
+
+        .business-card {
+            background:#fff;
+            border-radius:15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            display:flex;
+            align-items:flex-start;
+            padding:10px;
+            gap:12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .business-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1), 0 0 8px rgba(230, 0, 0, 0.1);
+        }
+
+        .business-image {
+            width: 100px;
+            height: 100px;
+            min-width: 100px;
+            border-radius:10px;
+            overflow:hidden;
+            background:#f3f3f3;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            box-shadow: 0 0 0 4px rgba(230,0,0,0.06), 0 0 12px rgba(230,0,0,0.08);
+        }
+
+        .business-image img {
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
+        .business-left {
+            display:flex;
+            flex-direction:column;
+            gap:6px;
+            width: 100px;
+        }
+
+        .business-timing {
+            color: #0b7a12;
+            font-size: 11px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .business-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .business-name {
+            font-size:16px;
+            font-weight:700;
+            color:#111;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+        }
+
+        .stars {
+            font-size:16px;
+            color:#f6b700;
+            letter-spacing:1px;
+            margin:4px 0 3px 0;
+            text-shadow: 0 0 4px rgba(246,183,0,0.25);
+        }
+
+        .rating-count {
+            color:#6b6b6b;
+            font-size:12px;
+            margin-left:4px;
+        }
+
+        .address {
+            display:flex;
+            align-items:center;
+            gap:6px;
+            color:#6b6b6b;
+            font-size:12px;
+            margin-top:4px;
+        }
+
+        .call-button {
+            background:#e61a1a;
+            color:#fff;
+            padding:8px 14px;
+            border-radius:2px;
+            border:none;
+            font-weight:700;
+            cursor:pointer;
+            box-shadow: 0 4px 10px rgba(230,0,0,0.15);
+            transition: transform .15s;
+            white-space:nowrap;
+            margin-top: 8px;
+            align-self: flex-start;
+            font-size: 12px;
+        }
+        .call-button:active { transform:translateY(1px); }
+
+        .detail-page {
+            display: none;
+            background-color: #ECECEC;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 25px;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .business-header {
+            display: flex;
+            margin-bottom: 25px;
+        }
+        
+        .business-image-large {
+            width: 300px;
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 25px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 60px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+        
+        .business-image-large:hover {
+            box-shadow: 0 0 15px rgba(230, 0, 0, 0.3);
+        }
+        
+        .business-image-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .business-title-info {
+            flex: 1;
+        }
+        
+        .business-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #333;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .business-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .business-location {
+            color: #666;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .business-location i {
+            margin-right: 8px;
+            color: #e60000;
+        }
+        
+        .timing {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 12px 15px;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timing span {
+            margin-right: 10px;
+            font-weight: 600;
+        }
+        
+        .open-timing {
+            color: #2e7d32;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            min-width: 120px;
+            transition: all 0.3s;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(230, 0, 0, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .action-btn:hover::before {
+            left: 100%;
+        }
+        
+        .action-btn i {
+            margin-right: 8px;
+        }
+        
+        .action-btn.primary {
+            background-color: #e60000;
+            color: white;
+            border-color: #e60000;
+            box-shadow: 0 0 5px rgba(230, 0, 0, 0.3);
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1), 0 0 10px rgba(230, 0, 0, 0.2);
+        }
+        
+        .action-btn.primary:hover {
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1), 0 0 15px rgba(230, 0, 0, 0.5);
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 25px;
+        }
+        
+        .tab {
+            padding: 12px 25px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .tab::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: #e60000;
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+        
+        .tab.active {
+            color: #e60000;
+        }
+        
+        .tab.active::after {
+            width: 100%;
+        }
+        
+        .tab:hover {
+            color: #e60000;
+        }
+        
+        .tab:hover::after {
+            width: 100%;
+        }
+        
+        .tab-content {
+            display: none;
+            min-height: 200px;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .address-section {
+            margin-bottom: 25px;
+        }
+        
+        .address-title {
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        
+        .address-text {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .address-actions {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .address-action {
+            padding: 10px 20px;
+            border: 1px solid #FFE6E6;
+            border-radius: 6px;
+            background-color: #FF0101;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .address-action i {
+            margin-right: 8px;
+        }
+        
+        .address-action:hover {
+            background-color: #cc0000;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 1);
+        }
+        
+        .reviews-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .review-card {
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #fafafa;
+            transition: all 0.3s;
+        }
+        
+        .review-card:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .reviewer-name {
+            font-weight: 600;
+        }
+        
+        .review-rating {
+            color: #ffc107;
+            text-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+        }
+        
+        .review-text {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .photos-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .photo-item {
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #464444;
+            transition: all 0.3s;
+        }
+        
+        .photo-item:hover {
+            box-shadow: 0 0 10px rgba(230, 0, 0, 0.3);
+            transform: scale(1.02);
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .categories-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .category-tag {
+            padding: 8px 15px;
+            background-color: #f0f0f0;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .category-tag:hover {
+            background-color: #e60000;
+            color: white;
+            box-shadow: 0 0 10px rgba(230, 0, 0, 0.3);
+        }
+        
+        .back-button {
+            background-color: #f5f5f5;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .back-button i {
+            margin-right: 8px;
+        }
+        
+        .back-button:hover {
+            background-color: #e9e9e9;
+            box-shadow: 0 0 5px rgba(230, 0, 0, 0.2);
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 18px;
+        }
+        
+        .city-selection {
+            margin-bottom: 15px;
+        }
+
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .city-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 12px 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            min-height: 85px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .city-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 8px rgba(230, 0, 0, 0.2);
+            border-color: #e60000;
+        }
+
+        .city-card.active {
+            border-color: #e60000;
+            background-color: #fff5f5;
+        }
+
+        .city-logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #e60000, #ff3333);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .city-logo i {
+            font-size: 14px;
+            color: white;
+        }
+
+        .city-name {
+            font-size: 11px;
+            font-weight: 700;
+            color: #000000;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .category-tabs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .business-card {
+                padding: 12px;
+                gap: 10px;
+            }
+            
+            .business-image {
+                width: 90px;
+                height: 90px;
+                min-width: 90px;
+            }
+            
+            .business-left {
+                width: 90px;
+            }
+        }
+
+        /* Rating Popup Styles */
+        .rating-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .rating-popup {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+            position: relative;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .popup-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .popup-store-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #e60000;
+            margin-bottom: 8px;
+        }
+
+        .popup-title {
+            font-size: 18px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .popup-rating-stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 25px 0;
+        }
+
+        .popup-rating-star {
+            font-size: 40px;
+            color: #ddd;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .popup-rating-star:hover {
+            transform: scale(1.3);
+            color: #ffc107;
+        }
+
+        .popup-rating-star.active {
+            color: #ffc107;
+            text-shadow: 0 0 15px rgba(255, 193, 7, 0.7);
+        }
+
+        .rating-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+
+        .rating-label {
+            font-size: 12px;
+            color: #666;
+            font-weight: 500;
+        }
+
+               .popup-rating-value {
+            text-align: center;
+            font-size: 18px;
+            color: #e60000;
+            font-weight: 600;
+            margin: 15px 0;
+            min-height: 25px;
+        }
+
+        .review-section {
+            margin: 20px 0;
+        }
+
+        .review-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .review-textarea {
+            width: 100%;
+            height: 100px;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            resize: vertical;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .review-textarea:focus {
+            outline: none;
+            border-color: #e60000;
+            box-shadow: 0 0 0 3px rgba(230, 0, 0, 0.1);
+        }
+
+        .popup-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .popup-btn {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .popup-btn.cancel {
+            background: #f5f5f5;
+            color: #666;
+            border: 2px solid #e0e0e0;
+        }
+
+        .popup-btn.cancel:hover {
+            background: #e9e9e9;
+            transform: translateY(-2px);
+        }
+
+        .popup-btn.submit {
+            background: #e60000;
+            color: white;
+            box-shadow: 0 4px 10px rgba(230, 0, 0, 0.3);
+        }
+
+        .popup-btn.submit:hover {
+            background: #cc0000;
+            box-shadow: 0 6px 15px rgba(230, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .popup-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .character-count {
+            text-align: right;
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .rating-emoji {
+            font-size: 24px;
+            margin-right: 8px;
+        }
+
+        .rating-feedback {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            margin: 10px 0;
+            min-height: 20px;
+            font-style: italic;
+        }
+
+        .user-info {
+            margin: 15px 0;
+        }
+
+        .user-info input {
+            height: 45px;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .user-info input:focus {
+            outline: none;
+            border-color: #e60000;
+            box-shadow: 0 0 0 3px rgba(230, 0, 0, 0.1);
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><i class="fas fa-store"></i>Deoria Shopping</div>
+        <a href="https://www.instagram.com/yt_nitish916?igsh=bms1aDh1ejdud3R1" class="yt_nitish916-link" target="_blank">yt_nitish916</a>
+    </header>
+    
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Dukaan, product ya service search karein...">
+            <button id="searchButton"><i class="fas fa-search"></i> Search</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Main View (City Selection + Store List) -->
+        <div id="main-view">
+            <!-- City Selection -->
+            <div class="city-selection">
+                <div class="page-title">
+                    <h2>Apna Sheher Chunein</h2>
+                </div>
+                
+                <div class="city-grid" id="cityGrid">
+                    <!-- City cards will be dynamically generated here -->
+                </div>
+            </div>
+            
+            <!-- Category Tabs -->
+            <div class="category-tabs" id="categoryTabs">
+                <div class="category-tab active" data-category="all">
+                    <i class="fas fa-store"></i>
+                    All Stores
+                </div>
+                <div class="category-tab" data-category="medical">
+                    <i class="fas fa-heartbeat"></i>
+                    Medical Store
+                </div>
+                <div class="category-tab" data-category="electronic">
+                    <i class="fas fa-plug"></i>
+                    Electronic Store
+                </div>
+                <div class="category-tab" data-category="kirana">
+                    <i class="fas fa-shopping-basket"></i>
+                    Kirana Store
+                </div>
+            </div>
+            
+           <!-- Store List -->
+            <div id="list-view">
+                <div class="page-title">
+                    <h2 id="city-market-title">Sabhi Markets</h2>
+                </div>
+                
+                <div class="business-list" id="businessList">
+                    <!-- Business cards will be dynamically generated here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Detail View -->
+        <div id="detail-view" class="detail-page">
+            <!-- Detail content will be dynamically generated here -->
+        </div>
+    </div>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    
+    <script>
+        // Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyB3pjiXSZGigP5rP-Hwv9TpKNjt6fRJFFI",
+            authDomain: "deoria-shoping.firebaseapp.com",
+            databaseURL: "https://deoria-shoping-default-rtdb.firebaseio.com",
+            projectId: "deoria-shoping",
+            storageBucket: "deoria-shoping.firebasestorage.app",
+            messagingSenderId: "842210012805",
+            appId: "1:842210012805:web:bba24ad8002ce8ab8143ec",
+            measurementId: "G-2XNTJP8N5G"
+        };
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+        
+        // Cities data - ALL CITY ADDED
+        const cities = [
+            { id: 0, name: "All City" },
+            { id: 1, name: "Deoria" },
+            { id: 2, name: "Baitalpur" },
+            { id: 4, name: "Baltikara" },
+            { id: 5, name: "Rudrapur" },
+            { id: 6, name: "Mauwadiy" },
+            { id: 7, name: "Gauri Bazza" },
+            { id: 10, name: "Chauri Chaura" },
+            { id: 11, name: "Salempur" },
+            { id: 12, name: "Kasia" },
+            { id: 13, name: "Hata" },
+            { id: 15, name: "Kushinagar" }
+        ];
+
+        // DOM elements
+        const mainView = document.getElementById('main-view');
+        const cityGrid = document.getElementById('cityGrid');
+        const listView = document.getElementById('list-view');
+        const detailView = document.getElementById('detail-view');
+        const businessList = document.getElementById('businessList');
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const cityMarketTitle = document.getElementById('city-market-title');
+        const categoryTabs = document.getElementById('categoryTabs');
+
+        // Current state
+        let currentCity = { id: 0, name: "All City" }; // Default to All City
+        let currentCategory = 'all';
+        let allStores = [];
+
+        // Initialize
+        function init() {
+            renderCityGrid();
+            setupCategoryTabs();
+            loadStoresFromFirebase();
+            setupBackButton();
+            
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') performSearch();
+            });
+        }
+
+        // Setup category tabs
+        function setupCategoryTabs() {
+            const tabs = categoryTabs.querySelectorAll('.category-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    currentCategory = this.getAttribute('data-category');
+                    filterStores();
+                });
+            });
+        }
+
+        // Load stores from Firebase
+        function loadStoresFromFirebase() {
+            db.ref('stores').on('value', (snapshot) => {
+                const storesData = snapshot.val();
+                if (storesData) {
+                    allStores = Object.entries(storesData).map(([id, store]) => ({
+                        id: id,
+                        name: store.name || '',
+                        rating: store.rating || 0,
+                        ratingCount: store.ratingCount || 0,
+                        address: store.address || '',
+                        image: store.image || '',
+                        phone: store.phone || '',
+                        location: store.location || '',
+                        category: store.category || '',
+                        timing: store.timing || { open: true, timing: "9:00 AM - 9:00 PM" },
+                        fullAddress: store.fullAddress || '',
+                        reviews: store.reviews || [],
+                        photos: store.photos || [],
+                        categories: store.categories || []
+                    }));
+                    filterStores();
+                } else {
+                    allStores = [];
+                    renderBusinessList([]);
+                }
+            });
+        }
+
+        // Filter stores based on city and category
+        function filterStores() {
+            let filteredStores = allStores;
+            
+            // Filter by city - All City shows all stores
+            if (currentCity.id !== 0) { // Not "All City"
+                filteredStores = filteredStores.filter(store => 
+                    store.location.toLowerCase().includes(currentCity.name.toLowerCase())
+                );
+                cityMarketTitle.textContent = `${currentCity.name} ka ${getCategoryName()}`;
+            } else {
+                cityMarketTitle.textContent = `Sabhi ${getCategoryName()}`;
+            }
+            
+            // Filter by category
+            if (currentCategory !== 'all') {
+                filteredStores = filteredStores.filter(store => {
+                    const storeCategory = store.category.toLowerCase();
+                    const storeName = store.name.toLowerCase();
+                    
+                    if (currentCategory === 'medical') {
+                        return storeCategory.includes('medical') || storeCategory.includes('medicine') || 
+                               storeName.includes('medical') || storeName.includes('medicine') ||
+                               storeCategory.includes('doctor') || storeCategory.includes('hospital');
+                    } else if (currentCategory === 'electronic') {
+                        return storeCategory.includes('electronic') || storeCategory.includes('electronics') || 
+                               storeName.includes('electronic') || storeName.includes('electronics') ||
+                               storeCategory.includes('mobile') || storeCategory.includes('laptop');
+                    } else if (currentCategory === 'kirana') {
+                        return storeCategory.includes('kirana') || storeCategory.includes('general') || 
+                               storeName.includes('kirana') || storeName.includes('general') ||
+                               storeCategory.includes('grocery');
+                    }
+                    return true;
+                });
+            }
+            
+            renderBusinessList(filteredStores);
+        }
+
+        function getCategoryName() {
+            const names = {
+                'all': 'Stores',
+                'medical': 'Medical Stores',
+                'electronic': 'Electronic Stores', 
+                'kirana': 'Kirana Stores'
+            };
+            return names[currentCategory] || 'Stores';
+        }
+
+        // Setup back button
+        function setupBackButton() {
+            window.addEventListener('popstate', function() {
+                showMainView();
+            });
+        }
+                // Render city grid with All City
+        function renderCityGrid() {
+            cityGrid.innerHTML = '';
+            
+            const cityIcons = {
+                "All City": "fas fa-globe",
+                "Deoria": "fas fa-city",
+                "Baitalpur": "fas fa-store", 
+                "Baltikara": "fas fa-shopping-bag",
+                "Rudrapur": "fas fa-home",
+                "Mauwadiy": "fas fa-building",
+                "Gauri Bazza": "fas fa-store-alt",
+                "Chauri Chaura": "fas fa-landmark",
+                "Salempur": "fas fa-university",
+                "Kasia": "fas fa-map-marker-alt",
+                "Hata": "fas fa-store",
+                "Padrauna": "fas fa-building-columns",
+                "Kushinagar": "fas fa-monument"
+            };
+            
+            cities.forEach(city => {
+                const cityCard = document.createElement('div');
+                cityCard.className = 'city-card';
+                if (city.id === 0) {
+                    cityCard.classList.add('active'); // All City selected by default
+                }
+                cityCard.innerHTML = `
+                    <div class="city-logo">
+                        <i class="${cityIcons[city.name] || "fas fa-map-marker-alt"}"></i>
+                    </div>
+                    <div class="city-name">${city.name}</div>
+                `;
+                cityCard.onclick = () => {
+                    document.querySelectorAll('.city-card').forEach(c => c.classList.remove('active'));
+                    cityCard.classList.add('active');
+                    currentCity = city;
+                    filterStores();
+                };
+                cityGrid.appendChild(cityCard);
+            });
+        }
+
+        // Render business list
+        function renderBusinessList(stores) {
+            businessList.innerHTML = '';
+            
+            if (stores.length === 0) {
+                businessList.innerHTML = '<div class="no-results">Abhi Dukan Add Nhi Hai.</div>';
+                return;
+            }
+
+            stores.forEach(store => {
+                const card = document.createElement('div');
+                card.className = 'business-card';
+                card.onclick = () => showBusinessDetail(store);
+                
+                const stars = '★'.repeat(Math.round(store.rating || 0)) + '☆'.repeat(5 - Math.round(store.rating || 0));
+                
+                card.innerHTML = `
+                    <div class="business-left">
+                        <div class="business-image">
+                            ${store.image ? `<img src="${store.image}" alt="${store.name}">` : '<i class="fas fa-store"></i>'}
+                        </div>
+                        <div class="business-timing">${store.timing.timing}</div>
+                    </div>
+                    <div class="business-info">
+                        <div class="business-name">${store.name}</div>
+                        <div>
+                            <span class="stars">${stars}</span>
+                            <span class="rating-count">${store.rating.toFixed(1)} ★ ${store.ratingCount} Ratings</span>
+                        </div>
+                        <div class="address">
+                            <i class="fas fa-map-marker-alt"></i>${store.address}
+                        </div>
+                        <button class="call-button" onclick="event.stopPropagation(); callBusiness('${store.phone}')">
+                            Call Now
+                        </button>
+                    </div>
+                `;
+                
+                businessList.appendChild(card);
+            });
+        }
+
+        // Show business detail - HIDE MAIN VIEW
+        function showBusinessDetail(store) {
+            window.history.pushState({ view: 'detail' }, '', `#${store.id}`);
+            
+            // Hide main view, show detail view
+            mainView.style.display = 'none';
+            detailView.style.display = 'block';
+            
+            const stars = '★'.repeat(Math.floor(store.rating)) + '☆'.repeat(5 - Math.floor(store.rating));
+            const timingClass = store.timing.open ? 'open-timing' : 'closed-timing';
+            
+            // Generate reviews HTML - Firebase se ALL ratings
+            let reviewsHTML = '';
+            db.ref('allRatings/' + store.id).once('value').then(snapshot => {
+                const ratingsData = snapshot.val();
+                if (ratingsData) {
+                    const ratingsArray = Object.values(ratingsData);
+                    ratingsArray.sort((a, b) => b.timestamp - a.timestamp);
+                    
+                    ratingsArray.forEach(rating => {
+                        const reviewStars = '★'.repeat(rating.rating) + '☆'.repeat(5 - rating.rating);
+                        const date = new Date(rating.timestamp).toLocaleDateString('hi-IN');
+                        const time = new Date(rating.timestamp).toLocaleTimeString('hi-IN', { 
+                            hour: '2-digit', 
+                            minute: '2-digit' 
+                        });
+                        
+                        reviewsHTML += `
+                            <div class="review-card">
+                                <div class="review-header">
+                                    <div class="reviewer-name">${rating.userName || 'Anonymous'}</div>
+                                    <div class="review-rating">${reviewStars}</div>
+                                </div>
+                                <div class="review-date">${date} at ${time}</div>
+                                <div class="review-text">${rating.review || 'No review text provided.'}</div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    reviewsHTML = '<p>Abhi tak koi review nahi hai. Pehle review dene wale banein!</p>';
+                }
+                
+                // Reviews section update karen
+                const reviewsSection = document.getElementById('reviews');
+                if (reviewsSection) {
+                    reviewsSection.innerHTML = `
+                        <div class="reviews-section">
+                            <div style="text-align:center; margin-bottom:15px; color:#666;">
+                                Total ${ratingsData ? Object.keys(ratingsData).length : 0} Ratings
+                            </div>
+                            ${reviewsHTML}
+                        </div>
+                    `;
+                }
+            });
+            
+            // Generate photos HTML
+            let photosHTML = '';
+            if (store.photos && store.photos.length > 0) {
+                store.photos.forEach(photo => {
+                    photosHTML += `
+                        <div class="photo-item">
+                            <img src="${photo}" alt="${store.name}">
+                        </div>
+                    `;
+                });
+            } else {
+                photosHTML = '<p>Abhi tak koi photo upload nahi hui hai.</p>';
+            }
+            
+            // Generate categories HTML
+            let categoriesHTML = '';
+            if (store.categories && store.categories.length > 0) {
+                store.categories.forEach(category => {
+                    categoriesHTML += `<div class="">${category}</div>`;
+                });
+            } else {
+                categoriesHTML = '<p>Koi categories define nahi hui hain.</p>';
+            }
+            
+            detailView.innerHTML = `
+                <button class="back-button" onclick="showMainView()"><i class="fas fa-arrow-left"></i> Wapas Jaein</button>
+                
+                <div class="business-header">
+                    <div class="business-image-large">
+                        ${store.image ? `<img src="${store.image}" alt="${store.name}">` : '<i class="fas fa-store"></i>'}
+                    </div>
+                    <div class="business-title-info">
+                        <h1 class="business-title">${store.name}</h1>
+                        <div class="business-rating">
+                            <div class="stars">${stars}</div>
+                            <div class="rating-count">${store.rating.toFixed(1)} (${store.ratingCount})</div>
+                        </div>
+                        <div class="business-location">
+                            <i class="fas fa-map-marker-alt"></i> ${store.location}
+                        </div>
+                        <div class="business-category">
+                            <i class="fas fa-tag"></i> ${store.category}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timing">
+                    <span>Timing:</span>
+                    <div class="${timingClass}">${store.timing.timing}</div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="action-btn primary" onclick="callBusiness('${store.phone}')">
+                        <i class="fas fa-phone"></i> Call Now
+                    </button>
+                    <button class="action-btn" onclick="shareBusiness('${store.name}')">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                    <button class="action-btn" onclick="saveBusiness('${store.id}')">
+                        <i class="fas fa-bookmark"></i> Save
+                    </button>
+                    <button class="action-btn" onclick="directionBusiness('${store.location}')">
+                        <i class="fas fa-directions"></i> Direction
+                    </button>
+                    <button class="action-btn" onclick="openRatingPopup('${store.id}', '${store.name}')">
+                        <i class="fas fa-star"></i> Rate & Review
+                    </button>
+                </div>
+                
+                <div class="tabs">
+                    <div class="tab active" onclick="switchTab(this, 'about')">About</div>
+                    <div class="tab" onclick="switchTab(this, 'reviews')">Reviews</div>
+                    <div class="tab" onclick="switchTab(this, 'photos')">Photos</div>
+                    <div class="tab" onclick="switchTab(this, '')"></div>
+                </div>
+                
+                <div id="about" class="tab-content active">
+                    <div class="address-section">
+                        <h3 class="address-title">Address</h3>
+                        <p class="address-text">${store.fullAddress || store.address}</p>
+                        <div class="address-actions">
+                            <button class="address-action" onclick="directionBusiness('${store.location}')">
+                                <i class="fas fa-directions"></i> Direction To Map
+                            </button>
+                            <button class="address-action" onclick="copyAddress('${store.fullAddress || store.address}')">
+                                <i class="fas fa-copy"></i> Copy Address
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="reviews" class="tab-content">
+                    <div class="reviews-section">
+                        Loading reviews...
+                    </div>
+                </div>
+                
+                <div id="photos" class="tab-content">
+                    <div class="photos-section">
+                        ${photosHTML}
+                    </div>
+                </div>
+                
+                <div id=" class="tab-content">
+                    <div class="categories-section">
+                        ${categoriesHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Show main view - HIDE DETAIL VIEW
+        function showMainView() {
+            window.history.pushState({ view: 'main' }, '', window.location.pathname);
+            detailView.style.display = 'none';
+            mainView.style.display = 'block';
+        }
+
+        // Switch tabs
+        function switchTab(element, tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            element.classList.add('active');
+        }
+
+        // Call business
+        function callBusiness(phone) {
+            if (phone) {
+                window.open(`tel:${phone}`);
+            } else {
+                alert('Phone number not available');
+            }
+        }
+
+        // Share business
+        function shareBusiness(businessName) {
+            if (navigator.share) {
+                navigator.share({
+                    title: businessName,
+                    text: `Check out ${businessName} on Deoria Shopping`,
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(`${businessName} - ${window.location.href}`);
+                alert('Link copied to clipboard!');
+            }
+        }
+        // Save business
+        function saveBusiness(businessId) {
+            alert(`Business ${businessId} saved to favorites!`);
+        }
+
+        // Get directions
+        function directionBusiness(location) {
+            window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`, '_blank');
+        }
+
+        // Copy address
+        function copyAddress(address) {
+            navigator.clipboard.writeText(address);
+            alert('Address copied to clipboard!');
+        }
+
+        // Search functionality
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            if (!searchTerm) {
+                filterStores();
+                return;
+            }
+            
+            const filteredStores = allStores.filter(store =>
+                store.name.toLowerCase().includes(searchTerm) ||
+                store.category.toLowerCase().includes(searchTerm) ||
+                store.location.toLowerCase().includes(searchTerm)
+            );
+            
+            cityMarketTitle.textContent = `Search Results for "${searchTerm}"`;
+            renderBusinessList(filteredStores);
+        }
+
+        // ========== ADVANCED RATING SYSTEM ========== //
+
+        let currentBusinessId = null;
+        let currentBusinessName = null;
+
+        // Open Rating Popup - HAR BAR NEW RATING
+        function openRatingPopup(businessId, businessName) {
+            currentBusinessId = businessId;
+            currentBusinessName = businessName;
+            
+            const popupHTML = `
+                <div class="rating-popup-overlay" id="ratingPopup">
+                    <div class="rating-popup">
+                        <div class="popup-header">
+                            <div class="popup-store-name">${businessName}</div>
+                            <div class="popup-title">Apana Rating De </div>
+                            <div style="font-size:12px; color:#666; margin-top:5px;">Rating Kare Ke Liye Dhanyawaad 🙏</div>
+                        </div>
+                        
+                        <div class="popup-rating-stars">
+                            <div class="popup-rating-star" data-rating="1">☆</div>
+                            <div class="popup-rating-star" data-rating="2">☆</div>
+                            <div class="popup-rating-star" data-rating="3">☆</div>
+                            <div class="popup-rating-star" data-rating="4">☆</div>
+                            <div class="popup-rating-star" data-rating="5">☆</div>
+                        </div>
+                        
+                        <div class="rating-labels">
+                            <span class="rating-label">Bohot Kharab</span>
+                            <span class="rating-label">Behtareen</span>
+                        </div>
+                        
+                        <div class="popup-rating-value" id="popupRatingValue">
+                            Star par click karein (1-5)
+                        </div>
+                        
+                        <div class="rating-feedback" id="ratingFeedback"></div>
+                        
+                        <div class="review-section">
+                            <label class="review-label">Apna Review Likhein (Optional)</label>
+                            <textarea 
+                                class="review-textarea" 
+                                id="reviewTextarea" 
+                                placeholder="Yahan apna naya experience share karein..."
+                                maxlength="500"
+                            ></textarea>
+                            <div class="character-count">
+                                <span id="charCount">0</span>/500 characters
+                            </div>
+                        </div>
+                        
+                        <div class="user-info">
+                            <label class="review-label">Apna Name (Optional)</label>
+                            <input 
+                                type="text" 
+                                class="review-textarea" 
+                                id="userNameInput" 
+                                placeholder="Apna name dein ya anonymous rahein"
+                                maxlength="50"
+                            >
+                        </div>
+                        
+                        <div class="popup-buttons">
+                            <button class="popup-btn cancel" onclick="closeRatingPopup()">
+                                Cancel
+                            </button>
+                            <button class="popup-btn submit" id="submitRatingBtn" disabled onclick="submitNewRating()">
+                                Submit Rating
+                            </button>
+                        </div>
+                        
+                        <div style="text-align:center; margin-top:15px; font-size:12px; color:#666;">
+                            Rating Time   </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', popupHTML);
+            setupNewRatingPopup();
+            
+            // Show popup
+            setTimeout(() => {
+                document.getElementById('ratingPopup').style.display = 'flex';
+            }, 10);
+        }
+
+        // Setup New Rating Popup
+        function setupNewRatingPopup() {
+            let selectedRating = 0;
+            let reviewText = '';
+            let userName = '';
+            
+            const stars = document.querySelectorAll('.popup-rating-star');
+            const ratingValue = document.getElementById('popupRatingValue');
+            const feedback = document.getElementById('ratingFeedback');
+            const submitBtn = document.getElementById('submitRatingBtn');
+            const textarea = document.getElementById('reviewTextarea');
+            const charCount = document.getElementById('charCount');
+            const nameInput = document.getElementById('userNameInput');
+            
+            const feedbackTexts = {
+                1: "Bohot kharab experience tha",
+                2: "Theek-thaak hai, improvement chahiye",
+                3: "Achcha hai, kuch kamiyan hain", 
+                4: "Bohot achcha experience tha",
+                5: "Behtareen! Bilkul perfect"
+            };
+            
+            // Stars functionality
+            stars.forEach(star => {
+                star.addEventListener('click', () => {
+                    selectedRating = parseInt(star.getAttribute('data-rating'));
+                    updateStarsDisplay();
+                    
+                    ratingValue.innerHTML = `
+                        <span class="rating-emoji">${getRatingEmoji(selectedRating)}</span>
+                        Aapki Rating: ${selectedRating} / 5 Stars
+                    `;
+                    
+                    feedback.textContent = feedbackTexts[selectedRating] || "";
+                    submitBtn.disabled = false;
+                });
+                
+                star.addEventListener('mouseover', (e) => {
+                    const rating = parseInt(e.target.getAttribute('data-rating'));
+                    highlightStars(rating);
+                });
+            });
+            
+            // Reset stars on mouse leave
+            document.querySelector('.popup-rating-stars').addEventListener('mouseleave', () => {
+                updateStarsDisplay();
+            });
+            
+            // Review textarea
+            textarea.addEventListener('input', function() {
+                reviewText = this.value;
+                charCount.textContent = this.value.length;
+                if (this.value.length > 450) {
+                    charCount.style.color = '#e60000';
+                } else {
+                    charCount.style.color = '#666';
+                }
+            });
+            
+            // User name input
+            nameInput.addEventListener('input', function() {
+                userName = this.value;
+            });
+            
+            function updateStarsDisplay() {
+                stars.forEach(star => {
+                    const starRating = parseInt(star.getAttribute('data-rating'));
+                    if (starRating <= selectedRating) {
+                        star.classList.add('active');
+                    } else {
+                        star.classList.remove('active');
+                    }
+                });
+            }
+            
+            function highlightStars(rating) {
+                stars.forEach(star => {
+                    const starRating = parseInt(star.getAttribute('data-rating'));
+                    if (starRating <= rating) {
+                        star.classList.add('active');
+                    } else {
+                        star.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        // Submit NEW Rating (Har bar unique)
+        function submitNewRating() {
+            const stars = document.querySelectorAll('.popup-rating-star');
+            const textarea = document.getElementById('reviewTextarea');
+            const nameInput = document.getElementById('userNameInput');
+            
+            let selectedRating = 0;
+            stars.forEach(star => {
+                if (star.classList.contains('active')) {
+                    selectedRating = parseInt(star.getAttribute('data-rating'));
+                }
+            });
+            
+            if (selectedRating === 0) {
+                alert('Kripya rating select karein!');
+                return;
+            }
+            
+            const reviewText = textarea.value;
+            const userName = nameInput.value || 'Anonymous User';
+            
+            // UNIQUE RATING ID - Har bar different
+            const ratingId = 'rating_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            
+            const ratingData = {
+                rating: selectedRating,
+                review: reviewText,
+                userName: userName,
+                timestamp: firebase.database.ServerValue.TIMESTAMP,
+                ratingId: ratingId,
+                businessId: currentBusinessId,
+                businessName: currentBusinessName
+            };
+            
+            // Save to Firebase with UNIQUE ID
+            db.ref('allRatings/' + currentBusinessId + '/' + ratingId).set(ratingData)
+                .then(() => {
+                    console.log('New rating saved with ID:', ratingId);
+                    updateBusinessAverageRating(currentBusinessId);
+                    showRatingSuccess();
+                    
+                    setTimeout(() => {
+                        closeRatingPopup();
+                        // Refresh reviews section
+                        const reviewsSection = document.getElementById('reviews');
+                        if (reviewsSection) {
+                            loadReviewsForDetail(currentBusinessId);
+                        }
+                    }, 1500);
+                })
+                .catch(error => {
+                    console.error('Firebase error:', error);
+                    alert('Rating save karne mein error!');
+                });
+        }
+
+        // Load reviews for detail page
+        function loadReviewsForDetail(businessId) {
+            db.ref('allRatings/' + businessId).once('value').then(snapshot => {
+                const reviewsSection = document.getElementById('reviews');
+                const ratingsData = snapshot.val();
+                
+                if (!ratingsData) {
+                    reviewsSection.innerHTML = '<p>Abhi tak koi review nahi hai.</p>';
+                    return;
+                }
+                
+                let reviewsHTML = '';
+                const ratingsArray = Object.values(ratingsData);
+                ratingsArray.sort((a, b) => b.timestamp - a.timestamp);
+                
+                ratingsArray.forEach(rating => {
+                    const reviewStars = '★'.repeat(rating.rating) + '☆'.repeat(5 - rating.rating);
+                    const date = new Date(rating.timestamp).toLocaleDateString('hi-IN');
+                    const time = new Date(rating.timestamp).toLocaleTimeString('hi-IN', { 
+                        hour: '2-digit', 
+                        minute: '2-digit' 
+                    });
+                    reviewsHTML += `
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="reviewer-name">${rating.userName || 'Anonymous'}</div>
+                                <div class="review-rating">${reviewStars}</div>
+                            </div>
+                            <div class="review-date">${date} at ${time}</div>
+                            <div class="review-text">${rating.review || 'No review text provided.'}</div>
+                        </div>
+                    `;
+                });
+                
+                reviewsSection.innerHTML = `
+                    <div class="reviews-section">
+                        <div style="text-align:center; margin-bottom:15px; color:#666;">
+                            Total ${ratingsArray.length} Ratings
+                        </div>
+                        ${reviewsHTML}
+                    </div>
+                `;
+            });
+        }
+
+        // Update Business Average Rating
+        function updateBusinessAverageRating(businessId) {
+            db.ref('allRatings/' + businessId).once('value').then(snapshot => {
+                const ratings = snapshot.val();
+                if (ratings) {
+                    let totalRating = 0;
+                    let ratingCount = 0;
+                    
+                    Object.values(ratings).forEach(rating => {
+                        totalRating += rating.rating;
+                        ratingCount++;
+                    });
+                    
+                    const averageRating = (totalRating / ratingCount).toFixed(1);
+                    
+                    // Update business data
+                    db.ref('stores/' + businessId).update({
+                        rating: parseFloat(averageRating),
+                        ratingCount: ratingCount
+                    });
+                }
+            });
+        }
+
+        // Show Success Message
+        function showRatingSuccess() {
+            const submitBtn = document.getElementById('submitRatingBtn');
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Rating Submit Ho Gayi!';
+            submitBtn.style.background = '#2e7d32';
+            submitBtn.disabled = true;
+        }
+
+        // Close Popup
+        function closeRatingPopup() {
+            const popup = document.getElementById('ratingPopup');
+            if (popup) {
+                popup.remove();
+            }
+        }
+
+        // Get Rating Emoji
+        function getRatingEmoji(rating) {
+            const emojis = {1: "😠", 2: "😐", 3: "😊", 4: "😃", 5: "🤩"};
+            return emojis[rating] || "⭐";
+        }
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

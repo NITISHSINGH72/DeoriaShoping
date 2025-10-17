@@ -4,7 +4,7 @@
  <meta name="google-site-verification" content="WRPUQTweUT9Ij2gC51cHT010KhK8IKTKduDnsq2WfO4" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deoria Shopping - Digital Marketplace 🛍️ </title>
+    <title>🛍️Deoria Shopping - Digital Marketplace </title>
 <meta name="description" content="Deoria Shopping – 🛒Apne Sheher Ka Digital Market Deoria Shopping ek local marketplace web app hai jahan users apne sheher ke sabhi stores, markets aur dukaanon ko ek hi jagah dekh sakte hain. Yahan har shop ka photo, address, timing, aur contact number diya gaya hai — Taki Aap Jaldi Shopping Kar Pai .
 · 📍 Multi-city support (Deoria, Baitalpur, Rudrapur, Salempur, and more!)
 · 🏪 Categorized business listings (Medical, Electronics, Kirana stores)
@@ -1094,21 +1094,21 @@
                 const storesData = snapshot.val();
                 if (storesData) {
                     allStores = Object.entries(storesData).map(([id, store]) => ({
-                        id: id,
-                        name: store.name || '',
-                        rating: store.rating || 0,
-                        ratingCount: store.ratingCount || 0,
-                        address: store.address || '',
-                        image: store.image || '',
-                        phone: store.phone || '',
-                        location: store.location || '',
-                        category: store.category || '',
-                        timing: store.timing || { open: true, timing: "9:00 AM - 9:00 PM" },
-                        fullAddress: store.fullAddress || '',
-                        reviews: store.reviews || [],
-                        photos: store.photos || [],
-                        categories: store.categories || []
-                    }));
+    id: id,
+    name: store.name || '',
+    rating: store.rating || 0,
+    ratingCount: store.ratingCount || 0,
+    shortAddress: store.shortAddress || store.address || '',  // ✅ ADD THIS LINE
+    location: store.location || '',
+    fullAddress: store.fullAddress || store.address || '',   // ✅ CHANGE THIS LINE
+    image: store.image || '',
+    phone: store.phone || '',
+    category: store.category || '',
+    timing: store.timing || { open: true, timing: "9:00 AM - 9:00 PM" },
+    reviews: store.reviews || [],
+    photos: store.photos || [],
+    categories: store.categories || []
+}));
                     filterStores();
                 } else {
                     allStores = [];
@@ -1123,9 +1123,10 @@
             
             // Filter by city - All City shows all stores
             if (currentCity.id !== 0) { // Not "All City"
-                filteredStores = filteredStores.filter(store => 
-                    store.location.toLowerCase().includes(currentCity.name.toLowerCase())
-                );
+    filteredStores = filteredStores.filter(store => 
+        store.shortAddress &&  // ✅ ADD THIS
+        store.shortAddress.toLowerCase().includes(currentCity.name.toLowerCase())
+    );
                 cityMarketTitle.textContent = `${currentCity.name} ka ${getCategoryName()}`;
             } else {
                 cityMarketTitle.textContent = `Sabhi ${getCategoryName()}`;
@@ -1245,8 +1246,8 @@
                             <span class="rating-count">${store.rating.toFixed(1)} ★ ${store.ratingCount} Ratings</span>
                         </div>
                         <div class="address">
-                            <i class="fas fa-map-marker-alt"></i>${store.address}
-                        </div>
+    <i class="fas fa-map-marker-alt"></i>${store.shortAddress}
+</div>
                         <button class="call-button" onclick="event.stopPropagation(); callBusiness('${store.phone}')">
                             Call Now
                         </button>

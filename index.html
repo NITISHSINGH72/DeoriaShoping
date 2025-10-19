@@ -1820,5 +1820,788 @@
         // Initialize app
         document.addEventListener('DOMContentLoaded', init);
     </script>
+     <!-- Footer Buttons -->
+<div class="footer-buttons">
+  <button class="red-btn" data-popup="privacyPopup">🔏 Privacy Policy</button>
+  <button class="red-btn" data-popup="aboutPopup">ℹ️ About Us</button>
+  <button class="red-btn" data-popup="contactPopup">📞 Contact</button>
+  <button class="red-btn" data-popup="servicesPopup">🛠️ Services</button>
+
+</div>
+
+<!-- Overlay -->
+<div id="popupOverlay" class="overlay"></div>
+
+<!-- Popups -->
+<div id="privacyPopup" class="popup">
+  <button class="close-btn">✕</button>
+  <div class="popup-content">
+    <h2>🛡️ Deoria Shopping – Privacy Policy</h2>
+    <p>यह गोपनीयता नीति बताती है कि Deoria Shopping (https://omnibhau.github.io/DeoriaShoping/) आपके द्वारा हमारी सेवा का उपयोग करते समय एकत्रित की गई जानकारी ("डेटा") को कैसे संभालता है।</p>
+
+    <h3>1. एकत्रित की जाने वाली जानकारी (Information We Collect)</h3>
+    <p>हम निम्नलिखित प्रकार की जानकारी एकत्र करते हैं:</p>
+    <ul>
+        <li><strong>व्यक्तिगत रूप से पहचान योग्य जानकारी (Personally Identifiable Information):</strong> जब आप हमारी वेबसाइट पर सबमिट करते हैं, तो हम आपका नाम, ईमेल पता, और आपके द्वारा दर्ज किए गए रिव्यू, रेटिंग या फोटो एकत्र कर सकते हैं। यह सब आपकी स्पष्ट सहमति से होता है।</li>
+        <li><strong>उपयोग डेटा (Usage Data):</strong> यह डेटा स्वचालित रूप से एकत्र किया जाता है और इसमें आपके डिवाइस का आईपी पता, ब्राउज़र प्रकार, ब्राउज़र संस्करण, आपके द्वारा देखे गए हमारे पेज, विज़िट का समय और तारीख, और अन्य सांख्यिकीय जानकारी शामिल हो सकती है।</li>
+        <li><strong>ट्रैकिंग टेक्नोलॉजीज (Tracking Technologies):</strong> हम कुकीज़ और समान ट्रैकिंग तकनीकों का उपयोग करते हैं।</li>
+    </ul>
+
+    <h3>2. जानकारी का उपयोग (Use of Information)</h3>
+    <p>हम आपकी जानकारी का उपयोग निम्नलिखित उद्देश्यों के लिए करते हैं:</p>
+    <ul>
+        <li>सेवाएं प्रदान करने और बनाए रखने के लिए।</li>
+        <li>आपको बेहतर उपयोगकर्ता अनुभव (User Experience) प्रदान करने के लिए।</li>
+        <li>दुकानों की रेटिंग और रिव्यू सार्वजनिक रूप से दिखाने के लिए।</li>
+        <li>डेटा को Firebase डेटाबेस में सुरक्षित रूप से संग्रहीत करने के लिए।</li>
+        <li>हमारी सेवाओं में सुधार और नई सुविधाएँ विकसित करने के लिए।</li>
+    </ul>
+    <p><strong>हम आपका पासवर्ड, बैंक विवरण, या किसी भी प्रकार की गुप्त वित्तीय जानकारी कभी नहीं मांगते हैं।</strong></p>
+
+    <h3>3. डेटा सुरक्षा (Data Security)</h3>
+    <ul>
+        <li>हमारा सारा डेटा Firebase (Google) के सर्वर पर सुरक्षित रहता है।</li>
+        <li>Firebase Google की एक विश्वसनीय सेवा है जो उद्योग-मानक एन्क्रिप्शन और सुरक्षित प्रोटोकॉल का उपयोग करके आपके डेटा को संभालती है।</li>
+    </ul>
+
+    <h3>4. कुकीज़ (Cookies)</h3>
+    <ul>
+        <li>हमारी वेबसाइट पर कुकीज़ का उपयोग किया जा सकता है ताकि आपकी पिछली पसंदें याद रखी जा सकें और साइट के प्रदर्शन को तेज़ बनाया जा सके।</li>
+        <li>आप अपने ब्राउज़र सेटिंग्स के माध्यम से किसी भी समय कुकीज़ को स्वीकार करने से इनकार कर सकते हैं या उन्हें हटा सकते हैं।</li>
+    </ul>
+
+    <h3>5. तृतीय-पक्ष सेवाएँ (Third-Party Services)</h3>
+    <ul>
+        <li>हमारी वेबसाइट में बाहरी लिंक (जैसे Instagram, YouTube) या विज्ञापन सेवाएँ (जैसे PopAds, Adsterra) शामिल हो सकती हैं।</li>
+        <li>इन तृतीय-पक्ष साइटों की अपनी अलग गोपनीयता नीतियाँ हैं, और हम उनकी सामग्री या गोपनीयता प्रथाओं के लिए ज़िम्मेदार नहीं हैं।</li>
+    </ul>
+
+    <h3>6. डेटा प्रतिधारण (Data Retention)</h3>
+    <ul>
+        <li>हम आपका व्यक्तिगत डेटा केवल तभी तक रखते हैं जब तक कि इस गोपनीयता नीति में बताए गए उद्देश्यों के लिए इसकी आवश्यकता हो।</li>
+        <li>यदि आप अपना डेटा हटाना चाहते हैं, तो कृपया हमसे संपर्क करें।</li>
+    </ul>
+
+    <h3>7. उपयोगकर्ता के अधिकार (User Rights)</h3>
+    <p>आपके पास निम्नलिखित अधिकार हैं:</p>
+    <ul>
+        <li><strong>पहुँच (Access):</strong> आप यह जानने का अधिकार रखते हैं कि हमने आपके बारे में कौन सा डेटा एकत्र किया है।</li>
+        <li><strong>सुधार (Correction):</strong> आप किसी भी गलत व्यक्तिगत जानकारी को सही करने का अनुरोध कर सकते हैं।</li>
+        <li><strong>हटाना (Deletion):</strong> आप अपने व्यक्तिगत डेटा को हटाने का अनुरोध कर सकते हैं, बशर्ते कि कोई कानूनी बाध्यता हमें ऐसा करने से न रोकती हो।</li>
+    </ul>
+
+    <h3>8. उपयोगकर्ता की सहमति (User Consent)</h3>
+    <ul>
+        <li>Deoria Shopping का उपयोग करके, आप इस गोपनीयता नीति की शर्तों से सहमत होते हैं।</li>
+    </ul>
+
+    <h3>9. देयता सीमा (Limitation of Liability)</h3>
+    <ul>
+        <li>Deoria Shopping साइबर हमलों, तकनीकी विफलताओं, या अन्य ऐसी घटनाओं के परिणामस्वरूप होने वाले डेटा के नुकसान या उल्लंघन के लिए उत्तरदायी नहीं होगा, जो हमारे उचित नियंत्रण से परे हैं।</li>
+    </ul>
+
+    <h3>10. संपर्क करें (Contact Us)</h3>
+    <ul>
+        <li>यदि इस गोपनीयता नीति के संबंध में आपके कोई प्रश्न हैं, तो कृपया हमसे संपर्क करें:</li>
+        <li>📧 info@deoriashopping.com</li>
+        <li>📍 Deoria, Uttar Pradesh, India</li>
+    </ul>
+
+    <h3>11. नीति में परिवर्तन (Changes to Policy)</h3>
+    <ul>
+        <li>हम समय-समय पर इस गोपनीयता नीति को अपडेट कर सकते हैं।</li>
+        <li>किसी भी बदलाव की सूचना इसी पेज पर पोस्ट करके दी जाएगी, और "अंतिम अद्यतन" तिथि संशोधित की जाएगी।</li>
+        <li>आपसे अनुरोध है कि समय-समय पर इस पेज की समीक्षा करते रहें।</li>
+    </ul>
+</div>
+</div>
+     <div id="aboutPopup" class="popup">
+  <button class="close-btn">✕</button>
+  <div class="popup-content">
+<div class="about-content">
+    
+    <h2>देवरिया शॉपिंग में आपका स्वागत है!</h2>
+    <ul>
+        <li>हम देवरिया शहर के स्थानीय बाजार और दुकानों को डिजिटल दुनिया से जोड़ने का काम कर रहे हैं।</li>
+        <li>हमारा मकसद है आपको शहर की बेहतरीन दुकानें, उनके उत्पाद और सेवाएँ एक ही जगह पर दिखाना।</li>
+    </ul>
+    
+    <h2>हमारा मकसद 💯</h2>
+    <ul>
+        <li>हमारा लक्ष्य साफ है — "देवरिया के लोगों को स्थानीय खरीदारी को आसान, पारदर्शी और ज्यादा जुड़ाव वाला बनाना।"</li>
+        <li>हम चाहते हैं कि आप बिना किसी झंझट के अपने आसपास की दुकानों के बारे में जान सकें</li>
+        <li>उनकी वास्तविक रेटिंग और रिव्यू देख सकें, और सही फैसला ले सकें।</li>
+    </ul>
+    
+    <h2>हम क्या करते हैं?‼️</h2>
+    <ul>
+        <li>देवरिया की दुकानों की पूरी जानकारी, फोटो और लोकेशन दिखाना</li>
+        <li>उपयोगकर्ताओं को ईमानदार रिव्यू और रेटिंग लिखने का मौका देना</li>
+        <li>स्थानीय व्यापार को डिजिटल रूप में बढ़ावा देना</li>
+    </ul>
+    
+    <h2>हमारी कहानी🌟</h2>
+    <ul>
+        <li>यह शुरुआत एक सवाल से हुई — "हमारे अपने शहर में अच्छी दुकानें कहाँ हैं, यह ऑनलाइन क्यों नहीं दिखता?"</li>
+        <li>इसी सोच के साथ, देवरिया के कुछ युवाओं ने मिलकर इस प्लेटफॉर्म को बनाया।</li>
+        <li>हमें विश्वास है कि हमारे शहर के छोटे व्यवसायों को डिजिटल सपोर्ट की जरूरत है</li>
+        <li>हम उनकी आवाज बनना चाहते हैं।</li>
+    </ul>
+    
+    <h2>हमारा समुदाय 💯</h2>
+    <ul>
+        <li>आपका हर रिव्यू, रेटिंग और सुझाव इस प्लेटफॉर्म को और भरोसेमंद बनाता है।</li>
+        <li>आइए, मिलकर देवरिया के स्थानीय व्यापार को मजबूत करें!</li>
+        <li>हम देवरिया शॉपिंग हैं — और हमें अपने स्थानीय होने पर गर्व है।</li>
+    </ul>
+    
+</div>
+
+    
+    <h2>About Us – Deoria Shopping</h2>
+    <ul>
+        <li>Welcome to Deoria Shopping! We are here to connect the local markets and shops of Deoria city with the digital world.</li>
+        <li>Our goal is to show you the best shops, their products, and services all in one place.</li>
+    </ul>
+    
+    <h2>Our Mission</h2>
+    <ul>
+        <li>We have a clear goal — "To make local shopping easier, more transparent, and more connected for the people of Deoria."</li>
+        <li>We want you to easily find information about nearby shops</li>
+        <li>Check genuine ratings and reviews, and make informed decisions.</li>
+    </ul>
+    
+    <h2>What We Do</h2>
+    <ul>
+        <li>Provide complete information, photos, and locations of shops in Deoria</li>
+        <li>Allow users to share honest reviews and ratings</li>
+        <li>Promote local businesses digitally</li>
+    </ul>
+    
+    <h2>Our Story</h2>
+    <ul>
+        <li>It all started with a question — "Why isn't there an online platform to find the best shops in our own city?"</li>
+        <li>With this thought, a group of young minds from Deoria came together to build this platform.</li>
+        <li>We believe that small businesses in our city need digital support</li>
+        <li>We want to be their voice.</li>
+    </ul>
+    
+    <h2>Join Our Community</h2>
+    <ul>
+        <li>Every review, rating, and suggestion from you makes this platform more trustworthy.</li>
+        <li>Let's come together and strengthen the local trade of Deoria!</li>
+        <li>We are Deoria Shopping — and we are proud to be local.</li>
+    </ul>
+    
+</div>
+     </div>
+     <div id="contactPopup" class="popup">
+  <button class="close-btn">✕</button>
+  <div class="popup-content">
+    <h3>हमसे संपर्क करें - Omni Bhau </h3>
+    <h2>Details </h2>
+    <p>आपकी आवाज़ हमारे लिए मायने रखती है!
+
+अगर आपके मन में कोई सवाल, सुझाव या शिकायत है, तो बेझिझक हमसे संपर्क करें। हम आपकी मदद के लिए हमेशा तैयार हैं।</p>
+
+    <p>📧 ईमेल:<p>
+<p> us7582845@gmail.com</p>
+ 📞 फोन / व्हाट्सएप:
+ <ul>
+    <li>+91 7234904161
+(कृपया शाम 6:00 बजे के बाद ही कॉल करें)</li>
+</ul>
+
+📍 पता: 
+     <ul>
+     <li>छेरियाँ, पोस्ट=सिरजम खास, जिला=देवरिया, स्टेट = उत्तर प्रदेश ] </li>
+     <li>Chheriha,Sirjam,Deoria, Uttar Pradesh, India - 274001</li>
+ </ul>
+
+📱 सोशल मीडिया:
+ <ul>
+        <li>Instagram= [ yt_nitish916 ]</li>
+        <li>Youtube=[ Omnibhau ]</li>
+        <li>Telegram=[ yt_nitish916 ]</li>
+        <li>Facebook=[ Nitish Singh ]</li>
+</ul>
+
+  </div>
+</div>
+
+<div id="servicesPopup" class="popup">
+  <button class="close-btn">✕</button>
+  <div class="popup-content">
+    <h3>🛠️ Services</h3>
+    🛍️ दुकान सूचीकरण (Shop Listing)
+
+<ul>
+    <li>✅ आपकी दुकान को हमारी वेबसाइट पर मुफ्त सूचीबद्ध करना</li>
+    <li>📸 दुकान की फोटो और विवरण जोड़ना</li>
+    <li>📍 सही लोकेशन और नक्शा दिखाना</li>
+    <li>🏷️ दुकान की श्रेणी और विशेषताएँ बताना</li>
+</ul>
+
+⭐ रेटिंग और रिव्यू सिस्टम
+
+<ul>
+    <li>🌟 ग्राहक दुकानों को रेटिंग दे सकते हैं</li>
+    <li>📝 ईमानदार रिव्यू लिख सकते हैं</li>
+    <li>🔍 रिव्यू मॉडरेशन सिस्टम</li>
+    <li>💬 पॉजिटिव फीडबैक को प्रमोट करना</li>
+</ul>
+
+🔍 सर्च और डिस्कवरी
+
+<ul>
+    <li>🔎 एडवांस्ड सर्च ऑप्शन</li>
+    <li>📱 यूजर-फ्रेंडली इंटरफेस</li>
+    <li>🗺️ लोकेशन के हिसाब से खोज</li>
+    <li>💡 रिकमंडेशन सिस्टम</li>
+</ul>
+
+📱 डिजिटल प्रमोशन
+
+<ul>
+    <li>📢 सोशल मीडिया पर प्रमोशन</li>
+    <li>🎯 लोकल ऑडियंस तक पहुँच</li>
+    <li>📈 व्यापार की विजिबिलिटी बढ़ाना</li>
+    <li>💫 स्पेशल ऑफर्स और डिस्काउंट्स</li>
+</ul>
+
+🛡️ विश्वसनीयता और सुरक्षा
+
+<ul>
+    <li>🔒 सुरक्षित प्लेटफॉर्म</li>
+    <li>✅ वेरिफाइड लिस्टिंग</li>
+    <li>📞 कस्टमर सपोर्ट</li>
+    <li>⚡ रियल-टाइम अपडेट</li>
+</ul>
+
+---
+
+🛍️ Shop Listing
+
+<ul>
+    <li>✅ Free listing on our website</li>
+    <li>📸 Add shop photos and details</li>
+    <li>📍 Accurate location and map</li>
+    <li>🏷️ Category and features</li>
+</ul>
+
+⭐ Rating & Review System
+
+<ul>
+    <li>🌟 Customers can rate shops</li>
+    <li>📝 Write honest reviews</li>
+    <li>🔍 Review moderation system</li>
+    <li>💬 Promote positive feedback</li>
+</ul>
+
+🔍 Search & Discovery
+
+<ul>
+    <li>🔎 Advanced search options</li>
+    <li>📱 User-friendly interface</li>
+    <li>🗺️ Location-based search</li>
+    <li>💡 Recommendation system</li>
+</ul>
+
+📱 Digital Promotion
+
+<ul>
+    <li>📢 Social media promotion</li>
+    <li>🎯 Reach local audience</li>
+    <li>📈 Increase business visibility</li>
+    <li>💫 Special offers & discounts</li>
+</ul>
+
+🛡️ Reliability & Security
+
+<ul>
+    <li>🔒 Secure platform</li>
+    <li>✅ Verified listings</li>
+    <li>📞 Customer support</li>
+    <li>⚡ Real-time updates</li>
+</ul>
+  </div>
+</div>
+
+     <style>
+.footer-buttons {
+  display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
+}
+.red-btn {
+  background:#ff4444; color:#fff; border:none; padding:10px 18px;
+  border-radius:25px; cursor:pointer; position:relative;
+  transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.red-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px #ff4444, 0 0 25px #ff6666;
+}
+.red-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 20px #ff2222;
+}
+
+/* Overlay */
+.overlay {
+  display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.6); z-index:999; transition: opacity 0.3s ease;
+}
+
+/* Popup */
+.popup {
+  display:none; position:fixed; top:50%; left:50%;
+  transform:translate(-50%,-50%) scale(0.7);
+  background:#FFFFFF; color:#000000; border-radius:15px;
+  width:90%; max-width:500px; max-height:80%; overflow-y:auto;
+  padding:25px; box-shadow:0 0 20px rgba(255,68,68,0.5);
+  z-index:1000; opacity:0; transition: all 0.35s ease;
+}
+.popup.show {
+  display:block;
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+}
+
+/* Close Button */
+.close-btn {
+  position:absolute; top:10px; right:12px; background:transparent;
+  border:none; font-size:20px; color:#ff6666; cursor:pointer;
+  transition: all 0.3s ease;
+}
+.close-btn:hover { color:#fff; transform: rotate(90deg); }
+
+.popup-content { line-height:1.6; }
+.popup-content ul { padding-left:20px; list-style:disc; }
+</style>
+
+<script>
+const overlay = document.getElementById('popupOverlay');
+
+// Open popups
+document.querySelectorAll('.red-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const popupId = btn.getAttribute('data-popup');
+    const popup = document.getElementById(popupId);
+
+    // Hide all popups
+    document.querySelectorAll('.popup').forEach(p=>{
+      p.classList.remove('show');
+    });
+
+    // Show overlay
+    overlay.style.display='block';
+    setTimeout(()=> overlay.style.opacity=1, 10);
+
+    // Show selected popup
+    popup.classList.add('show');
+  });
+});
+
+// Close popups
+function closePopup(popup){
+  popup.classList.remove('show');
+  overlay.style.opacity=0;
+  setTimeout(()=> overlay.style.display='none', 300);
+}
+
+// Close buttons
+document.querySelectorAll('.popup .close-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    closePopup(btn.parentElement);
+  });
+});
+
+// Click outside
+overlay.addEventListener('click', e=>{
+  if(e.target===overlay){
+    document.querySelectorAll('.popup').forEach(p=>p.classList.remove('show'));
+    overlay.style.opacity=0;
+    setTimeout(()=> overlay.style.display='none', 300);
+  }
+});
+
+// ESC key
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){
+    document.querySelectorAll('.popup').forEach(p=>p.classList.remove('show'));
+    overlay.style.opacity=0;
+    setTimeout(()=> overlay.style.display='none', 300);
+  }
+});
+</script>
+     <!-- FAQ Section -->
+<div class="faq-section">
+    <h2 style="text-align: center; color: #333; margin-bottom: 30px; font-size: 20px;">❓ अक्सर पूछे जाने वाले सवाल</h2>
+    
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(1)">
+            <span>📍 मैं अपनी दुकान कैसे जोड़ सकता/सकती हूँ?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer" id="faq-1">
+            <p>✅ आप हमें ईमेल या व्हाट्सएप पर दुकान की जानकारी भेज सकते हैं। हम 24 घंटे के अंदर आपकी दुकान को वेबसाइट पर जोड़ देगी।</p>
+        </div>
+    </div>
+
+
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(3)">
+            <span>🔧 वेबसाइट में कोई तकनीकी समस्या आ रही है?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer" id="faq-3">
+            <p>✅ कृपया हमें ईमेल पर विस्तार से बताएं, हम जल्द से जल्द ठीक करने की कोशिश करेंगे।</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(4)">
+            <span>💰 क्या दुकान जोड़ने के लिए कोई शुल्क है?</span>
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer" id="faq-4">
+            <p>✅ नहीं! दुकान जोड़ना पूरी तरह से मुफ्त है। कोई भी शुल्क नहीं लगता। [ Free ]</p>
+        </div>
+    </div>
+
+
+
+    <!-- Feedback Button -->
+    <button class="feedback-btn" onclick="openFeedback()">
+        💬 अपना Feedback जरूर दे 
+    </button>
+</div>
+
+<!-- Feedback Popup -->
+<div class="feedback-popup" id="feedbackPopup">
+    <div class="popup-content">
+        <div class="popup-header">
+            <h3>💡 अपना Feedback जरूर दे</h3>
+            <span class="close-btn" onclick="closeFeedback()">&times;</span>
+        </div>
+        
+        <form id="feedbackForm">
+            <div class="form-group">
+                <label for="userName">आपका नाम:</label>
+                <input type="text" id="userName" placeholder="अपना नाम लिखें..." required>
+            </div>
+            
+            <div class="form-group">
+                <label for="userFeedback">आपका Feedback:</label>
+                <textarea id="userFeedback" placeholder="अपना feedback यहाँ लिखें..." rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">✅ Submit Feedback</button>
+        </form>
+    </div>
+</div>
+
+<!-- Feedback Display Area -->
+<div class="feedback-display" id="feedbackDisplay">
+    <h3>📝 User Feedbacks</h3>
+    <div id="savedFeedbacks"></div>
+</div>
+
+<style>
+.faq-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.faq-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 15px;
+    background: #f8f9fa;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: white;
+}
+
+.faq-answer.active {
+    padding: 20px;
+    max-height: 200px;
+}
+
+.faq-icon {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.feedback-btn {
+    background: #C10000;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.feedback-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.popup-content {
+    background: white;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.feedback-display {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.feedback-item {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+}
+</style>
+
+<script>
+ // FAQ Toggle Function
+function toggleFAQ(id) {
+    const answer = document.getElementById(`faq-${id}`);
+    const icon = answer.previousElementSibling.querySelector('.faq-icon');
+    
+    if (answer.classList.contains('active')) {
+        answer.classList.remove('active');
+        icon.textContent = '+';
+    } else {
+        // Close all other FAQs
+        document.querySelectorAll('.faq-answer').forEach(item => {
+            item.classList.remove('active');
+            item.previousElementSibling.querySelector('.faq-icon').textContent = '+';
+        });
+        
+        answer.classList.add('active');
+        icon.textContent = '-';
+    }
+}
+
+// Feedback Popup Functions
+function openFeedback() {
+    document.getElementById('feedbackPopup').style.display = 'block';
+}
+
+
+
+// Save Feedback to Local Storage
+function saveFeedback(name, feedback) {
+    let feedbacks = JSON.parse(localStorage.getItem('deoriaFeedbacks')) || [];
+    
+    const newFeedback = {
+        id: Date.now(),
+        name: name,
+        feedback: feedback,
+        date: new Date().toLocaleString('hi-IN')
+    };
+    
+    feedbacks.unshift(newFeedback);
+    localStorage.setItem('deoriaFeedbacks', JSON.stringify(feedbacks));
+    
+    displayFeedbacks();
+}
+
+// Display Saved Feedbacks
+function displayFeedbacks() {
+    const feedbacks = JSON.parse(localStorage.getItem('deoriaFeedbacks')) || [];
+    const container = document.getElementById('savedFeedbacks');
+    
+    container.innerHTML = '';
+    
+    if (feedbacks.length === 0) {
+        container.innerHTML = '<p>अभी तक कोई feedback नहीं मिला है।</p>';
+        return;
+    }
+    
+    feedbacks.forEach(feedback => {
+        const feedbackItem = document.createElement('div');
+        feedbackItem.className = 'feedback-item';
+        feedbackItem.innerHTML = `
+            <strong>${feedback.name}</strong>
+            <span style="float: right; color: #666; font-size: 12px;">${feedback.date}</span>
+            <p style="margin: 10px 0 0 0;">${feedback.feedback}</p>
+        `;
+        container.appendChild(feedbackItem);
+    });
+}
+
+// Load feedbacks when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    displayFeedbacks();
+});
+</script>
+     <!-- 🌟 Deoria Tags 2-Line Auto Scroll -->
+<section class="deoria-tags-section">
+  <h3>🔥 Deoria Tags</h3>
+
+  <!-- First Line (Left to Right Scroll) -->
+  <div class="tags-scroll line1">
+    <div class="tags-track">
+      <span>Deoria Shopping</span>
+      <span>Deoria Market</span>
+      <span>Best Shops in Deoria</span>
+      <span>Deoria Store Reviews</span>
+      <span>Deoria Electronic Shops</span>
+      <span>Deoria Kirana Stores</span>
+      <span>Deoria Medical Stores</span>
+      <span>Deoria Restaurant Guide</span>
+      <span>Deoria Local Deals</span>
+      <span>Deoria City Mall</span>
+      <span>Digital marketing </span>
+      <span>Mega Mart</span>
+      <span>Fashion Stores</span>
+      <span> Grocery Market</span>
+      <span>Deoria Shopping Center</span>
+      <span> City Guide</span>
+      <span>Deoria Online Market</span>
+      <span>Deoria Local Businesses</span>
+      <span>Deoria Electronic Mall</span>
+      <span>Deoria Daily Needs</span>
+      <span>Deoria Shop Near Me</span>
+      <span>Best Deals in Deoria</span>
+      <span>Deoria Store Finder</span>
+      <span>Deoria Shopping Website</span>
+      <span>Deoria Shopping Experience</span>
+    </div>
+  </div>
+
+  <!-- Second Line (Right to Left Scroll) -->
+  <div class="tags-scroll line2">
+    <div class="tags-track">
+      <span>Deoria Bazaar</span>
+      <span> Local Stores</span>
+      <span>Deoria Business</span>
+      <span>Digital Store </span>
+      <span>Deoria Shopping website</span>
+      <span>OmniBhau</span>
+      <span>Store </span>
+      <span>Price Comparison</span>
+      <span>Gauri bazzar </span>
+      <span>Shopping Guide</span>
+      <span>Baitalpur</span>
+      <span>Mauwadiy</span>
+      <span>Deoria Deals</span>
+      <span>chauri chaura </span>
+      <span>Smart Shopping</span>
+      <span>hata</span>
+      <span>Local Mall</span>
+      <span>Nearby Shops</span>
+      <span>Khusinagr</span>
+      <span>Online Store </span>
+      <span>Shopping Offers</span>
+      <span>Fashion Mall</span>
+      <span>Grocery Mart</span>
+      <span>Rudapur</span>
+      <span>Explore Deoria</span>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+    atOptions = {
+        'key': '3d5a0fe074237fb60b295c1fdb9bff0f',
+        'format': 'iframe',
+        'height': 50,
+        'width': 320,
+        'params': {}
+    };
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/3d5a0fe074237fb60b295c1fdb9bff0f/invoke.js"></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '875dc8f9edb25bc701a82f9d24695af1',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/875dc8f9edb25bc701a82f9d24695af1/invoke.js"></script>
 </body>
 </html>

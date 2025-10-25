@@ -1,8 +1,10 @@
 ---
-name: "🐛 Bug Report"
-about: "Report a bug or problem in Deoria Shopping"
+name: "\U0001F41B Bug Report"
+about: Report a bug or problem in Deoria Shopping
 title: "[BUG]: "
-labels: ["bug"]
+labels: bug
+assignees: ''
+
 ---
 
 ## 🐛 Problem Description
@@ -47,4 +49,4 @@ Add screenshots if possible
 
 ## 📞 संपर्क (वैकल्पिक)
 - ईमेल: 
-- व्हाट्सएप: 
+- व्हाट्सएप:

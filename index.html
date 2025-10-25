@@ -22,6 +22,16 @@
 · Customers looking for trusted local stores
 · Anyone supporting the "Vocal for Local
     #DeoriaStore  #LocalBusiness #DigitalIndia #SupportLocal #WebDevelopment #omnibhau #deoriashop #shop #deoriamarket #deoriastore #omni #store #deoria #Stores #DeoriaMarket #deoriamarketplace #deoria ">
+    
+	<!-- PWA META TAGS -->
+    <meta name="theme-color" content="#e60000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Deoria Shopping">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3144/3144456.png">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3144/3144456.png">
+    <!-- PWA META TAGS END -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -1912,6 +1922,45 @@
 
         // Initialize app
         document.addEventListener('DOMContentLoaded', init);
+		// ✅ YEH NAYA PWA CODE - SIMPLE VERSION
+// PWA Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/DeoriaShoping/sw.js')
+            .then(function(registration) {
+                console.log('PWA Service Worker registered');
+                // Service worker register hone pe button show karo
+                setTimeout(() => {
+                    document.getElementById('installBtn').style.display = 'block';
+                }, 2000);
+            })
+            .catch(function(error) {
+                console.log('PWA Service Worker registration failed');
+            });
+    });
+}
+
+// PWA Install Button - HAMESHA SHOW KARO
+const installBtn = document.getElementById('installBtn');
+
+// Button ko 5 second baad automatically show karo
+setTimeout(() => {
+    installBtn.style.display = 'block';
+}, 5000);
+
+// Button click pe PWA install karo
+installBtn.addEventListener('click', () => {
+    if ('serviceWorker' in navigator) {
+        // PWA features check karo
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            alert('📱 App already installed hai!');
+        } else {
+            alert('✅ Mobile pe "Add to Home Screen" option ayega browser menu mein!');
+        }
+    }
+});
+
+// ✅ PWA 
     </script>
 		<script async="async" data-cfasync="false" src="//pl27874571.effectivegatecpm.com/51a3e40f858041131403f04a0835633c/invoke.js"></script>
 <div id="container-51a3e40f858041131403f04a0835633c"></div>
@@ -2698,5 +2747,79 @@ document.addEventListener('DOMContentLoaded', function() {
 	};
 </script>
 <script type="text/javascript" src="//www.highperformanceformat.com/875dc8f9edb25bc701a82f9d24695af1/invoke.js"></script>
+		<style>
+#installBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 16px 3px;
+  border: none;
+  border-radius: 80px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1000;
+  background: linear-gradient(270deg, #FE0F5FBA, #000000,#FFFFFFC9 ,#0C38CAE0, #000000B5, #A80000ED,#000000,#FFFFFFEB);
+  background-size: 1000% 1000%;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3), 0 0 15px rgba(255,255,255,0.2) inset;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  perspective: 1000px;
+}
+
+/* Rainbow gradient animation */
+@keyframes rainbowGradient {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+
+#installBtn {
+  animation: rainbowGradient 10s ease infinite;
+}
+
+/* Liquid wave effect using pseudo element */
+#installBtn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3), transparent 70%);
+  animation: liquidWave 4s linear infinite;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+@keyframes liquidWave {
+  0% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(20px,10px) rotate(180deg); }
+  100% { transform: translate(0,0) rotate(360deg); }
+}
+
+#installBtn span {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+/* Hover 3D push effect */
+#installBtn:hover {
+  transform: scale(1.15) rotateX(8deg) rotateY(-8deg);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.5), 0 0 30px rgba(255,255,255,0.4) inset;
+}
+
+#installBtn:hover span {
+  transform: translateY(-4px);
+}
+</style>
+
+<button id="installBtn"><span>🚀 Install App Now</span></button>
 </body>
 </html>
+</body>
+	</html>

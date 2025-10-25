@@ -29,8 +29,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Deoria Shopping">
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3144/3144456.png">
-    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3144/3144456.png">
+    <link rel="icon" href="https://i.postimg.cc/kGvgpxhK/Picsart-25-10-11-09-15-13-434.jpg">
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/kGvgpxhK/Picsart-25-10-11-09-15-13-434.jpg">
     <!-- PWA META TAGS END -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -1922,45 +1922,106 @@
 
         // Initialize app
         document.addEventListener('DOMContentLoaded', init);
-		// ✅ YEH NAYA PWA CODE - SIMPLE VERSION
-// PWA Service Worker
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/DeoriaShoping/sw.js')
-            .then(function(registration) {
-                console.log('PWA Service Worker registered');
-                // Service worker register hone pe button show karo
-                setTimeout(() => {
-                    document.getElementById('installBtn').style.display = 'block';
-                }, 2000);
-            })
-            .catch(function(error) {
-                console.log('PWA Service Worker registration failed');
-            });
+		// ✅ DIRECT INSTALL PWA BUTTON - YE FORCE KAREGA INSTALL
+const installBtn = document.getElementById('installBtn');
+let deferredPrompt;
+
+// Button ko smart banate hain
+function setupPWAButton() {
+    // Button hamesha visible rakho
+    installBtn.style.display = 'block';
+    installBtn.innerHTML = '📱 INSTALL APP NOW';
+    installBtn.style.background = '#e60000';
+    
+    // Click pe direct install try karo
+    installBtn.addEventListener('click', async function() {
+        console.log('🚀 Install button clicked - forcing install');
+        
+        // Method 1: Agar deferredPrompt available hai
+        if (deferredPrompt) {
+            try {
+                console.log('🎯 Showing install prompt...');
+                deferredPrompt.prompt();
+                
+                const choiceResult = await deferredPrompt.userChoice;
+                console.log('✅ User choice:', choiceResult.outcome);
+                
+                if (choiceResult.outcome === 'accepted') {
+                    alert('🎉 Deoria Shopping App successfully installed! Home screen check karo!');
+                    installBtn.style.display = 'none';
+                } else {
+                    alert('ℹ️ Aapne install cancel kiya. Browser menu se bhi install kar sakte hain.');
+                }
+                deferredPrompt = null;
+            } catch (error) {
+                console.log('❌ Install error:', error);
+                showManualInstructions();
+            }
+        } 
+        // Method 2: Agar prompt nahi aaya toh manual guide
+        else {
+            showManualInstructions();
+        }
     });
 }
 
-// PWA Install Button - HAMESHA SHOW KARO
-const installBtn = document.getElementById('installBtn');
+// Manual install instructions
+function showManualInstructions() {
+    if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+        alert(`📱 MANUAL INSTALL INSTRUCTIONS:
 
-// Button ko 5 second baad automatically show karo
-setTimeout(() => {
-    installBtn.style.display = 'block';
-}, 5000);
+1. Browser ke TOP menu mein 3 dots (⋮) click karo
+2. "Add to Home Screen" ya "Install App" dhundho
+3. "Add" ya "Install" button click karo
+4. Home screen pe Deoria Shopping ka icon ayega
 
-// Button click pe PWA install karo
-installBtn.addEventListener('click', () => {
-    if ('serviceWorker' in navigator) {
-        // PWA features check karo
-        if (window.matchMedia('(display-mode: standalone)').matches) {
-            alert('📱 App already installed hai!');
-        } else {
-            alert('✅ Mobile pe "Add to Home Screen" option ayega browser menu mein!');
-        }
+✅ App install hone ke baad offline bhi use kar sakte hain!`);
+    } else {
+        alert('💻 Ye feature mobile devices ke liye hai. Mobile pe website open karo!');
     }
+}
+
+// PWA prompt capture karo
+window.addEventListener('beforeinstallprompt', function(e) {
+    console.log('🎯 PWA install prompt captured');
+    e.preventDefault();
+    deferredPrompt = e;
+    
+    // Button update karo
+    installBtn.innerHTML = '📱 INSTALL NOW (Direct)';
+    installBtn.style.background = '#00cc00';
+    installBtn.style.fontWeight = 'bold';
 });
 
-// ✅ PWA 
+// App installed hone pe
+window.addEventListener('appinstalled', function() {
+    console.log('🎉 PWA successfully installed');
+    installBtn.style.display = 'none';
+    deferredPrompt = null;
+});
+
+// Service Worker Register
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/DeoriaShoping/sw.js')
+        .then(function(registration) {
+            console.log('✅ PWA Service Worker registered');
+            setupPWAButton();
+        })
+        .catch(function(error) {
+            console.log('❌ Service Worker failed, but button will work');
+            setupPWAButton();
+        });
+} else {
+    console.log('❌ Service Worker not supported');
+    setupPWAButton();
+}
+
+// Fallback - Agar kuch bhi fail ho toh bhi button show karo
+setTimeout(() => {
+    if (installBtn.style.display === 'none') {
+        installBtn.style.display = 'block';
+    }
+}, 3000);
     </script>
 		<script async="async" data-cfasync="false" src="//pl27874571.effectivegatecpm.com/51a3e40f858041131403f04a0835633c/invoke.js"></script>
 <div id="container-51a3e40f858041131403f04a0835633c"></div>
@@ -2755,7 +2816,7 @@ document.addEventListener('DOMContentLoaded', function() {
   padding: 16px 3px;
   border: none;
   border-radius: 80px;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
   color: #fff;

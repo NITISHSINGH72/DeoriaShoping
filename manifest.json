@@ -1,0 +1,22 @@
+{
+  "name": "Deoria Store - Digital marketplace",
+  "short_name": "DeoriaStore",
+  "description": "Deoria ka sabse best shopping experience",
+  "start_url": "/DeoriaShoping/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#e60000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3144/3144456.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3144/3144456.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

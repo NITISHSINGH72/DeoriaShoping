@@ -1922,7 +1922,7 @@
 
         // Initialize app
         document.addEventListener('DOMContentLoaded', init);
-		// ✅ DIRECT INSTALL PWA BUTTON - YE FORCE KAREGA INSTALL
+		    // ✅ DIRECT INSTALL PWA BUTTON - YE FORCE KAREGA INSTALL
 const installBtn = document.getElementById('installBtn');
 let deferredPrompt;
 
@@ -2022,6 +2022,62 @@ setTimeout(() => {
         installBtn.style.display = 'block';
     }
 }, 3000);
+
+// Install Now Button Function with Awesome Effects
+document.addEventListener('DOMContentLoaded', function() {
+    const installBtn = document.getElementById('installBtn');
+    
+    // Button को visible रखो
+    installBtn.style.display = 'block';
+    
+    // Click event with cool effects
+    installBtn.addEventListener('click', function() {
+        // Button press effect
+        this.style.transform = 'scale(0.95)';
+        this.style.animation = 'none';
+        
+        setTimeout(() => {
+            this.style.transform = 'scale(1.15) rotateX(8deg) rotateY(-8deg)';
+            this.style.animation = 'rainbowGradient 10s ease infinite';
+        }, 150);
+        
+        // Step-by-step instructions
+        const steps = `🚀 DEORIA Store APP INSTALL करें:
+
+1. 🔍 ब्राउज़र के TOP-RIGHT में 3 dots [ ⋮ ]👈 पर क्लिक करें
+
+2. 📱 "Add to Home Screen" या "Install App" ढूंढें
+
+3. ✅ "Add" या "Install" बटन पर क्लिक करें
+
+ 🎉 congratulations!  App Install हो जायेगा !`;
+
+
+        
+        alert(steps);
+        
+        // Success sound effect (optional)
+        console.log("🎯 Install guide shown successfully!");
+    });
+    
+    // Mouse enter effect
+    installBtn.addEventListener('mouseenter', function() {
+        this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.6), 0 0 25px rgba(255,255,255,0.5) inset';
+    });
+    
+    // Mouse leave effect  
+    installBtn.addEventListener('mouseleave', function() {
+        this.style.boxShadow = '0 8px 25px rgba(0,0,0,0.3), 0 0 15px rgba(255,255,255,0.2) inset';
+    });
+});
+
+// PWA Service Worker (Optional)
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/DeoriaShoping/sw.js')
+        .then(() => console.log('✅ App Ready!'))
+        .catch(() => console.log('✅ Website Working!'));
+}
+		
     </script>
 		<script async="async" data-cfasync="false" src="//pl27874571.effectivegatecpm.com/51a3e40f858041131403f04a0835633c/invoke.js"></script>
 <div id="container-51a3e40f858041131403f04a0835633c"></div>

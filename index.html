@@ -131,37 +131,57 @@
             border-bottom: 1px solid #000000;
         }
         
-        /* Category Tabs */
-        .category-tabs {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin: 20px 0;
-        }
-        
-        .category-tab {
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 15px 5px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-            font-size: 12px;
-        }
-        
-        .category-tab.active {
-            background: #e60000;
-            color: white;
-            border-color: #e60000;
-        }
-        
-        .category-tab i {
-            display: block;
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
+        /* ✅ Category Tabs - Compact 3 per row */
+.category-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 boxes per line */
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.category-tab {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 12px 5px; /* thoda chhota */
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 13px;  /* small text */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.category-tab i {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 4px;
+    color: #e60000;
+}
+
+.category-tab.active {
+    background: #00000091;
+    color: white;
+    border-color: #5D5B5BC9;
+    box-shadow: 0 4px 10px rgba(230, 0, 0, 0.3);
+}
+
+/* ✅ Mobile Responsive */
+@media (max-width: 600px) {
+    .category-tabs {
+        grid-template-columns: repeat(3, 1fr); /* mobile par bhi 3 per line */
+        gap: 8px;
+    }
+
+    .category-tab {
+        padding: 5px 4px;
+        font-size: 12px;
+    }
+
+    .category-tab i {
+        font-size: 18px;
+    }
+}
         
         .business-list { 
             display:flex; 
@@ -1072,26 +1092,33 @@
                 </div>
             </div>
             
-            <!-- Category Tabs -->
-            <div class="category-tabs" id="categoryTabs">
-                <div class="category-tab active" data-category="all">
-                    <i class="fas fa-store"></i>
-                    All Stores
-                </div>
-                <div class="category-tab" data-category="medical">
-                    <i class="fas fa-heartbeat"></i>
-                    Medical Store
-                </div>
-                <div class="category-tab" data-category="electronic">
-                    <i class="fas fa-plug"></i>
-                    Electronic Store
-                </div>
-                <div class="category-tab" data-category="kirana">
-                    <i class="fas fa-shopping-basket"></i>
-                    Kirana Store
-                </div>
-            </div>
             
+            <div class="category-tabs" id="categoryTabs">
+  <div class="category-tab active" data-category="all">
+      <i class="fas fa-store"></i>
+      All Stores
+  </div>
+  <div class="category-tab" data-category="medical">
+      <i class="fas fa-heartbeat"></i>
+      Medical Store
+  </div>
+  <div class="category-tab" data-category="electronic">
+      <i class="fas fa-plug"></i>
+      Electronic Store
+  </div>
+  <div class="category-tab" data-category="kirana">
+      <i class="fas fa-shopping-basket"></i>
+      Kirana Store
+  </div>
+  <div class="category-tab" data-category="clothes">
+      <i class="fas fa-tshirt"></i>
+      Clothes Store
+  </div>
+  <div class="category-tab" data-category="mobile">
+      <i class="fas fa-mobile-alt"></i>
+      Mobile Store
+  </div>
+			</div>
            <!-- Store List -->
             <div id="list-view">
                 <div class="page-title">
@@ -1235,42 +1262,56 @@
                 cityMarketTitle.textContent = `Sabhi ${getCategoryName()}`;
             }
             
-            // Filter by category
-            if (currentCategory !== 'all') {
-                filteredStores = filteredStores.filter(store => {
-                    const storeCategory = store.category.toLowerCase();
-                    const storeName = store.name.toLowerCase();
-                    
-                    if (currentCategory === 'medical') {
-                        return storeCategory.includes('medical') || storeCategory.includes('medicine') || 
-                               storeName.includes('medical') || storeName.includes('medicine') ||
-                               storeCategory.includes('doctor') || storeCategory.includes('hospital');
-                    } else if (currentCategory === 'electronic') {
-                        return storeCategory.includes('electronic') || storeCategory.includes('electronics') || 
-                               storeName.includes('electronic') || storeName.includes('electronics') ||
-                               storeCategory.includes('mobile') || storeCategory.includes('laptop');
-                    } else if (currentCategory === 'kirana') {
-                        return storeCategory.includes('kirana') || storeCategory.includes('general') || 
-                               storeName.includes('kirana') || storeName.includes('general') ||
-                               storeCategory.includes('grocery');
-                    }
-                    return true;
-                });
-            }
-            
-            renderBusinessList(filteredStores);
+            /// Filter by category
+if (currentCategory !== 'all') {
+    filteredStores = filteredStores.filter(store => {
+        const storeCategory = store.category.toLowerCase();
+        const storeName = store.name.toLowerCase();
+        
+        if (currentCategory === 'medical') {
+            return storeCategory.includes('medical') || storeCategory.includes('medicine') || 
+                   storeName.includes('medical') || storeName.includes('medicine') ||
+                   storeCategory.includes('doctor') || storeCategory.includes('hospital');
+        } 
+        else if (currentCategory === 'electronic') {
+            return storeCategory.includes('electronic') || storeCategory.includes('electronics') || 
+                   storeName.includes('electronic') || storeName.includes('electronics') ||
+                   storeCategory.includes('mobile') || storeCategory.includes('laptop');
+        } 
+        else if (currentCategory === 'kirana') {
+            return storeCategory.includes('kirana') || storeCategory.includes('general') || 
+                   storeName.includes('kirana') || storeName.includes('general') ||
+                   storeCategory.includes('grocery');
+        }
+        else if (currentCategory === 'clothes') {
+            return storeCategory.includes('cloth') || storeCategory.includes('fashion') || 
+                   storeName.includes('cloth') || storeName.includes('fashion') ||
+                   storeCategory.includes('boutique') || storeCategory.includes('garments');
+        }
+        else if (currentCategory === 'mobile') {
+            return storeCategory.includes('mobile') || storeCategory.includes('phone') || 
+                   storeName.includes('mobile') || storeName.includes('phone') ||
+                   storeCategory.includes('smartphone') || storeCategory.includes('electronics');
         }
 
-        function getCategoryName() {
-            const names = {
-                'all': 'Stores',
-                'medical': 'Medical Stores',
-                'electronic': 'Electronic Stores', 
-                'kirana': 'Kirana Stores'
-            };
-            return names[currentCategory] || 'Stores';
-        }
+        return true;
+    });
+}
 
+renderBusinessList(filteredStores);
+}
+
+function getCategoryName() {
+    const names = {
+        'all': 'Stores',
+        'medical': 'Medical Stores',
+        'electronic': 'Electronic Stores', 
+        'kirana': 'Kirana Stores',
+        'clothes': 'Clothes Stores',
+        'mobile': 'Mobile Stores'
+    };
+    return names[currentCategory] || 'Stores';
+}
         // Setup back button
         function setupBackButton() {
             window.addEventListener('popstate', function() {

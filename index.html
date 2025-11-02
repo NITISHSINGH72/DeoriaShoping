@@ -1247,59 +1247,63 @@
             });
         }
 
-        // Filter stores based on city and category
-        function filterStores() {
-            let filteredStores = allStores;
-            
-            // Filter by city - All City shows all stores
-            if (currentCity.id !== 0) { // Not "All City"
-    filteredStores = filteredStores.filter(store => 
-        store.shortAddress &&  // ✅ ADD THIS
-        store.shortAddress.toLowerCase().includes(currentCity.name.toLowerCase())
-    );
-                cityMarketTitle.textContent = `${currentCity.name} ka ${getCategoryName()}`;
-            } else {
-                cityMarketTitle.textContent = `Sabhi ${getCategoryName()}`;
+        // 🧩 Filter stores based on city + category + rating (sorted)
+function filterStores() {
+    let filteredStores = allStores;
+    
+    if (currentCity.id !== 0) {
+        filteredStores = filteredStores.filter(store => 
+            store.location.toLowerCase().includes(currentCity.name.toLowerCase())
+        );
+        cityMarketTitle.textContent = `${currentCity.name} ka ${getCategoryName()}`;
+    } else {
+        cityMarketTitle.textContent = `Sabhi ${getCategoryName()}`;
+    }
+
+    if (currentCategory !== 'all') {
+        filteredStores = filteredStores.filter(store => {
+            const storeCategory = (store.category || '').toLowerCase();
+            const storeName = (store.name || '').toLowerCase();
+
+            if (currentCategory === 'medical') {
+                return storeCategory.includes('medical') || storeCategory.includes('medicine') ||
+                       storeName.includes('medical') || storeName.includes('medicine') ||
+                       storeCategory.includes('doctor') || storeCategory.includes('hospital');
+            } 
+            else if (currentCategory === 'electronic') {
+                return storeCategory.includes('electronic') || storeCategory.includes('electronics') ||
+                       storeName.includes('electronic') || storeName.includes('electronics') ||
+                       storeCategory.includes('mobile') || storeCategory.includes('laptop');
+            } 
+            else if (currentCategory === 'kirana') {
+                return storeCategory.includes('kirana') || storeCategory.includes('general') ||
+                       storeName.includes('kirana') || storeName.includes('general') ||
+                       storeCategory.includes('grocery');
             }
-            
-            /// Filter by category
-if (currentCategory !== 'all') {
-    filteredStores = filteredStores.filter(store => {
-        const storeCategory = store.category.toLowerCase();
-        const storeName = store.name.toLowerCase();
-        
-        if (currentCategory === 'medical') {
-            return storeCategory.includes('medical') || storeCategory.includes('medicine') || 
-                   storeName.includes('medical') || storeName.includes('medicine') ||
-                   storeCategory.includes('doctor') || storeCategory.includes('hospital');
-        } 
-        else if (currentCategory === 'electronic') {
-            return storeCategory.includes('electronic') || storeCategory.includes('electronics') || 
-                   storeName.includes('electronic') || storeName.includes('electronics') ||
-                   storeCategory.includes('mobile') || storeCategory.includes('laptop');
-        } 
-        else if (currentCategory === 'kirana') {
-            return storeCategory.includes('kirana') || storeCategory.includes('general') || 
-                   storeName.includes('kirana') || storeName.includes('general') ||
-                   storeCategory.includes('grocery');
-        }
-        else if (currentCategory === 'clothes') {
-            return storeCategory.includes('cloth') || storeCategory.includes('fashion') || 
-                   storeName.includes('cloth') || storeName.includes('fashion') ||
-                   storeCategory.includes('boutique') || storeCategory.includes('garments');
-        }
-        else if (currentCategory === 'mobile') {
-            return storeCategory.includes('mobile') || storeCategory.includes('phone') || 
-                   storeName.includes('mobile') || storeName.includes('phone') ||
-                   storeCategory.includes('smartphone') || storeCategory.includes('electronics');
-        }
+            else if (currentCategory === 'clothes') {
+                return storeCategory.includes('cloth') || storeCategory.includes('fashion') ||
+                       storeName.includes('cloth') || storeName.includes('fashion') ||
+                       storeCategory.includes('boutique') || storeCategory.includes('garments');
+            }
+            else if (currentCategory === 'mobile') {
+                return storeCategory.includes('mobile') || storeCategory.includes('phone') ||
+                       storeName.includes('mobile') || storeName.includes('phone') ||
+                       storeCategory.includes('smartphone');
+            }
 
-        return true;
+            return true;
+        });
+    }
+
+    // 🌟 Sort stores by rating (highest → lowest)
+    filteredStores.sort((a, b) => {
+        const ratingA = a.rating || 0;
+        const ratingB = b.rating || 0;
+        return ratingB - ratingA;  // higher rating first
     });
-}
 
-renderBusinessList(filteredStores);
-}
+    renderBusinessList(filteredStores);
+			}
 
 function getCategoryName() {
     const names = {
